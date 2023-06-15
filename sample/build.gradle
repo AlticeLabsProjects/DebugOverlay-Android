@@ -1,5 +1,5 @@
 repositories {
-    jcenter()
+    mavenCentral()
     flatDir {
         dirs 'libs'
     }
@@ -61,36 +61,36 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    debugCompile project(':debugoverlay')
-    releaseCompile project(':debugoverlay-no-op')
-    testCompile project(':debugoverlay-no-op')
+    debugImplementation project(':debugoverlay')
+    releaseImplementation project(':debugoverlay-no-op')
+    testImplementation project(':debugoverlay-no-op')
 
-    compile(project(':debugoverlay-ext-timber')) {
+    implementation(project(':debugoverlay-ext-timber')) {
         exclude module: 'debugoverlay'
     }
 
-    compile(project(':debugoverlay-ext-netstats')) {
+    implementation(project(':debugoverlay-ext-netstats')) {
         exclude module: 'debugoverlay'
     }
 
-    compile "com.android.support:appcompat-v7:${supportLibraryVersion}"
-    compile "com.android.support:design:${supportLibraryVersion}"
+    implementation "com.android.support:appcompat-v7:${supportLibraryVersion}"
+    implementation "com.android.support:design:${supportLibraryVersion}"
 
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testImplementation'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 
     // Set this dependency to build and run Espresso tests
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
     // ScreenShot taker for instrumentation tests
-    androidTestCompile(name:'cloudtestingscreenshotter_lib', ext:'aar')
+    androidTestImplementation(name:'cloudtestingscreenshotter_lib', ext:'aar')
 
-    testCompile deps.junit
+    testImplementation deps.junit
 }

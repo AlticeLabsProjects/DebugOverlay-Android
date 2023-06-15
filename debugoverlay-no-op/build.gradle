@@ -28,8 +28,8 @@ android {
 }
 
 dependencies {
-    testCompile deps.junit
-    testCompile deps.mockitocore
+    testImplementation deps.junit
+    testImplementation deps.mockitocore
 }
 
 // for maven central deployment

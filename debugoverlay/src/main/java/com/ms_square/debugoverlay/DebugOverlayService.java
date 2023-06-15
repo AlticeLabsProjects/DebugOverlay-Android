@@ -202,10 +202,10 @@ public class DebugOverlayService extends Service {
             if (config.getActivityName() != null) {
                 try {
                     Intent intent = new Intent(this, Class.forName(config.getActivityName()));
-                    pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                        PendingIntent.getActivity(this, PendingIntent.FLAG_MUTABLE, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-                    }else{
-                        PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                        pendingIntent = PendingIntent.getActivity(this, PendingIntent.FLAG_IMMUTABLE, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+                    } else {
+                        pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
                     }
                 } catch (ClassNotFoundException ne) {
                     Log.w(TAG, config.getActivityName() + " was not found - " + ne.getMessage());

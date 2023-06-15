@@ -11,8 +11,8 @@ android {
 }
 
 dependencies {
-    compile project(':debugoverlay')
-    testCompile deps.junit
+    implementation project(':debugoverlay')
+    testImplementation deps.junit
 }
 
 // for maven central deployment

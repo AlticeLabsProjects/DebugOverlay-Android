@@ -11,9 +11,9 @@ android {
 }
 
 dependencies {
-    compile project(':debugoverlay')
-    compile 'com.jakewharton.timber:timber:4.5.1'
-    testCompile deps.junit
+    implementation project(':debugoverlay')
+    implementation 'com.jakewharton.timber:timber:4.5.1'
+    testImplementation deps.junit
 }
 
 // for maven central deployment
