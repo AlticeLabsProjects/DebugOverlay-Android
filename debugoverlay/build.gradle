@@ -40,9 +40,10 @@ dependencies {
 publishing {
     publications {
         release(MavenPublication) {
-            groupId = 'com.github.AlticeLabsProjects.DebugOverlay-Android'
+            groupId = 'com.github.AlticeLabsProjects'
             artifactId = 'DebugOverlay-Android'
             version = '1.0.0'
+
         }
     }
 }

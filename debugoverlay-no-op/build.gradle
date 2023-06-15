@@ -31,6 +31,3 @@ dependencies {
     testImplementation deps.junit
     testImplementation deps.mockitocore
 }
-
-// for maven central deployment
-apply from: 'https://raw.githubusercontent.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
