@@ -37,12 +37,13 @@ dependencies {
     implementation "com.android.support:support-annotations:${supportLibraryVersion}"
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                version = android.defaultConfig.versionName
-            }
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.AlticeLabsProjects'
+            artifactId = 'DebugOverlay-Android'
+            version = '0.0.0'
+
         }
     }
 }
